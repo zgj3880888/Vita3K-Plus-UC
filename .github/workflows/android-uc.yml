@@ -92,8 +92,14 @@ jobs:
         run: bash ./.ci/setup-android.sh
 
       - uses: hendrikmuhs/ccache-action@v1.2.23
+        # ccache only speeds the build up. The runner image has neither ccache
+        # nor working ubuntu mirrors, and the action's own install step is what
+        # aborted the previous run with `exit code 100` - so a failure here must
+        # never stop the APK from being produced.
+        continue-on-error: true
         with:
           key: android-uc
+          install: false
 
       - name: Restore pinned signing keystore
         run: |
