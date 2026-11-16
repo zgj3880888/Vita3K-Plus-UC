@@ -1,3 +1,3 @@
-trigger 2026-11-14T17:27:42+0800
-source: Vita3K-Plus@uc-build 556bb55d024a
-reason: give EDF the nightly's 900-vblank patience before forcing event flags (was 300), drop the give-up rule and the 10 s re-arm suppression
+trigger 2026-11-16T21:04:25+0800
+source: Vita3K-Plus@uc-build ee2724376c1a
+reason: base on driver4 (bc0a0ee93f) + port the upstream display queue fix (fc9fadfc03 bb2e1fb123 8b2f8520ac): serialise entries, restore last_display on an aborted push, gate push on >=
